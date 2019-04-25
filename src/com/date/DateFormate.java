@@ -24,7 +24,7 @@ public class DateFormate {
         String arg = in.nextLine();
         if (checkFormat(arg)) {
             System.out.println("Format is correct");
-            System.out.println("Enter date");
+            System.out.println("Enter date in format as "+ arg);
             DateTimeFormatter formater = DateTimeFormatter.ofPattern(arg);
             String date = in.nextLine();
             LocalDate localdate = LocalDate.parse(date, formater);
