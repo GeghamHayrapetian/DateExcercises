@@ -9,7 +9,6 @@ public class YearOfBirth {
         System.out.println("Enter you age");
         int age=in.nextInt();
         System.out.println( "Your year of birth  is " +( LocalDate.now().minusYears(age)).getYear());
-        LocalDate.now().getDayOfWeek();
     }
 
 }

@@ -24,20 +24,20 @@ public class DateFormate {
         String arg = in.nextLine();
         if (checkFormat(arg)) {
             System.out.println("Format is correct");
-            System.out.println("Enter date in format as "+ arg);
+            System.out.println("Enter date in format as " + arg);
             DateTimeFormatter formater = DateTimeFormatter.ofPattern(arg);
             String date = in.nextLine();
             LocalDate localdate = LocalDate.parse(date, formater);
             LocalDate now = LocalDate.now();
             now = LocalDate.parse(formater.format(now), formater);
-            long days=ChronoUnit.DAYS.between(localdate, now);
-            long month=ChronoUnit.MONTHS.between(localdate, now);
-            long year=ChronoUnit.YEARS.between(localdate, now);
-            System.out.println("Difference between = " + days + "  days or "+ month +" months or " + year+" years" );
-        }
-        else{
+            long days = ChronoUnit.DAYS.between(localdate, now);
+            long month = ChronoUnit.MONTHS.between(localdate, now);
+            long year = ChronoUnit.YEARS.between(localdate, now);
+            System.out.println("Difference between = " + days + "  days or " + month + " months or " + year + " years");
+        } else {
             System.out.println("Format isn`t correct");
 
-            calculateDifference();}
+            calculateDifference();
+        }
     }
 }
