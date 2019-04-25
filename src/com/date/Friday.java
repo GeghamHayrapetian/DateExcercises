@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class Friday {
-    static void getFridays() {
+ public  static void getFridays() {
         LocalDate day = LocalDate.now();
         DateTimeFormatter formater=DateTimeFormatter.ofPattern("dd MMMM,YYYY");
         for (int i = 0; i < 7; ++i) {
