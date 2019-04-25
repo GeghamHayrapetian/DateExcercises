@@ -8,6 +8,6 @@ public class Date {
         //YearOfBirth.getYear();
        // Friday.getFridays();
         //LeapYear.checkLeap();
-        DateFormate.checkFormat();
+        DateFormate.calculateDifference();
     }
 }

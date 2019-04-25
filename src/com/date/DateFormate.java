@@ -1,32 +1,43 @@
 package com.date;
 
-import java.sql.SQLOutput;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.time.chrono.ChronoLocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
 
 public class DateFormate {
-    private static  LocalDate countDiference(LocalDate first,LocalDate second)
-    {
-         LocalDate difference=LocalDate.of(first.getYear()-second.getYear(),first.getMonthValue()-second.getMonthValue(),first.getDayOfMonth()-second.getDayOfMonth());
-         return difference;
+    private static boolean checkFormat(String arg) {
+        if (arg.contains("MM")) {
+            if (arg.contains("yyyy") | arg.contains("YYYY") & (arg.contains("dd") | (arg.contains("dd")))) {
+                return true;
+            }
+
+        }
+
+        return false;
     }
-    static void  checkFormat() {
+
+    static void calculateDifference() {
         System.out.println("Enter the date format");
         Scanner in = new Scanner(System.in);
-        String arg=in.nextLine();
-        if (arg.contains("YYYY") & arg.contains("MM") & arg.contains("DD")) {
+        String arg = in.nextLine();
+        if (checkFormat(arg)) {
             System.out.println("Format is correct");
             System.out.println("Enter date");
             DateTimeFormatter formater = DateTimeFormatter.ofPattern(arg);
-            String date=in.nextLine();
-            LocalDate localdate= LocalDate.parse(date,formater);
-            LocalDate now= LocalDate.parse((LocalDateTime.now().toString()),formater);
-            System.out.println(countDiference(now,localdate));
+            String date = in.nextLine();
+            LocalDate localdate = LocalDate.parse(date, formater);
+            LocalDate now = LocalDate.now();
+            now = LocalDate.parse(formater.format(now), formater);
+            long days=ChronoUnit.DAYS.between(localdate, now);
+            long month=ChronoUnit.MONTHS.between(localdate, now);
+            long year=ChronoUnit.YEARS.between(localdate, now);
+            System.out.println("Difference between = " + days + "  days or "+ month +" months or " + year+" years" );
         }
+        else{
+            System.out.println("Format isn`t correct");
+
+            calculateDifference();}
     }
-
-
-
 }
