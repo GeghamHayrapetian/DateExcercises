@@ -1,12 +1,9 @@
-package com.date;
-
-import java.time.LocalDate;
-import java.util.Scanner;
+package com.aca.date;
 
 public class Date {
     public static void main(String[] args) {
-        YearOfBirth.getYear();
-        // Friday.getFridays();
+         //YearOfBirth.getYear();
+         Friday.getFridays();
         //LeapYear.checkLeap();
        // DateFormate.calculateDifference();
     }
